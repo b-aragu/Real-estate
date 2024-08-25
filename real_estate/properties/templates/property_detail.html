@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ property.title }} - Real Estate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1 class="card-title">{{ property.title }}</h1>
+            <p class="card-text">{{ property.description }}</p>
+            <p class="card-text"><strong>Price:</strong> ${{ property.price }}</p>
+            <p class="card-text"><strong>Address:</strong> {{ property.address }}, {{ property.city }}, {{ property.state }} {{ property.zip_code }}</p>
+            {% for media in property.media.all %}
+                {% if media.media_type == 'image' %}
+                    <img src="{{ media.file.url }}" class="img-fluid mb-3" alt="{{ property.title }}">
+                {% elif media.media_type == 'video' %}
+                    <video controls class="img-fluid mb-3">
+                        <source src="{{ media.file.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
