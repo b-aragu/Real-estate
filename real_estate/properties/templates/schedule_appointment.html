@@ -1,0 +1,15 @@
+<!-- schedule_appointment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Schedule an Appointment{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Schedule an Appointment for {{ property.title }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+    </form>
+</div>
+{% endblock %}

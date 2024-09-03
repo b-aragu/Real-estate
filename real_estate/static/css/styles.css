@@ -1,23 +1,86 @@
-.card {
+/* General Styles */
+body {
+    background-color: #121212; /* Black background */
+    color: #f0e6d2; /* Faded gold text */
+    font-family: 'Arial', sans-serif;
+}
+
+a {
+    color: #d4af37; /* Faded gold links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f0e6d2; /* Lighter gold on hover */
+}
+
+.jumbotron {
+    background-color: #1c1c1c; /* Darker shade for jumbotron */
+    color: #f0e6d2;
+}
+
+.btn-primary, .btn-wishlist {
+    background-color: #d4af37; /* Faded gold for buttons */
     border: none;
-    border-radius: 8px;
-    overflow: hidden;
+    color: #121212;
 }
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
+.btn-primary:hover, .btn-wishlist:hover {
+    background-color: #b58c2b; /* Darker gold on hover */
+    color: #f0e6d2;
 }
 
-.card-body {
-    padding: 1.25rem;
+.form-control, .form-select {
+    background-color: #1c1c1c; /* Darker input background */
+    color: #f0e6d2; /* Faded gold text */
+    border: 1px solid #d4af37;
+}
+
+.form-control::placeholder, .form-select::placeholder {
+    color: #a8a8a8; /* Lighter gray placeholder text */
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #1c1c1c;
+    color: #f0e6d2;
+    border-color: #f0e6d2;
+    box-shadow: none;
+}
+
+.card {
+    background-color: #1c1c1c; /* Dark card background */
+    color: #f0e6d2;
+    border: 1px solid #d4af37; /* Faded gold border */
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
+    color: #d4af37;
 }
 
-.card-text {
-    color: #666;
+.card-img-top {
+    border-bottom: 1px solid #d4af37;
+}
+
+.form-check-label {
+    color: #f0e6d2;
+}
+
+.form-check-input:checked {
+    background-color: #d4af37;
+    border-color: #d4af37;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.btn-primary.mt-3 {
+    background-color: #d4af37;
+    border: none;
+    color: #121212;
+}
+
+.btn-primary.mt-3:hover {
+    background-color: #b58c2b;
+    color: #f0e6d2;
 }
