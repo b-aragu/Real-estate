@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Compare Properties{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Compare Properties</h1>
+    <div class="row">
+        {% for property in properties %}
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <!-- Media Display -->
+                {% for media in property.media.all %}
+                    {% if media.media_type == 'image' %}
+                        <img src="{{ media.file.url }}" class="card-img-top" alt="{{ property.title }}">
+                    {% elif media.media_type == 'video' %}
+                        <video controls class="card-img-top">
+                            <source src="{{ media.file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% endif %}
+                {% endfor %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ property.title }}</h5>
+                    <p class="card-text"><strong>Price:</strong> KSH{{ property.price }}</p>
+                    <p class="card-text"><strong>Address:</strong> {{ property.address }}, {{ property.city }}, {{ property.state }} {{ property.zip_code }}</p>
+                    <p class="card-text"><strong>Description:</strong> {{ property.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const checkboxes = document.querySelectorAll('input[name="properties"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (document.querySelectorAll('input[name="properties"]:checked').length > 3) {
+                    this.checked = false;
+                    alert("You can only compare up to 3 properties at a time.");
+                }
+            });
+        });
+    });
+</script>
